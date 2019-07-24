@@ -64,14 +64,16 @@ class FractionInterval(AbstractInterval):
         ))
 
 
-def prove_interval(interval, verbose=0):
+def prove_interval(interval, proven=FractionInterval.open_closed(0, 1), verbose=0):
     """
     for open-closed fraction interval, prove Collatz main term conjecture.
 
+    Optionally, you can use the proven interval, where you already know
+    all the numbers are reduced to (0, 1].
+
     if verbose, print every step,
-    if verbose is more than 2, print every sub steps,
+    if verbose is more than 2, print every sub steps.
     """
-    proven = FractionInterval.open_closed(0, 1)
     unproven = break_at_integer(interval)
     if verbose:
         i = 0
